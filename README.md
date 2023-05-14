@@ -138,3 +138,35 @@ echo $operation; // вычитание
 As in different programming language
 
 
+## Array
+
+As in different programming language
+
+But vocabulary in php is array
+```php
+<?php
+$vocabulary = array('first' => 1, 'second' => 2, 'third' => 3);
+foreach ($vocabulary as $key => $value) {
+    echo(" Key: $key => Value: $value <br>");
+}
+?>
+```
+
+## Function
+
+As in different programming language (js)
+
+But in PHP8 naming parameters 
+
+```php
+<?php
+function hello($name, $age) {
+    echo("My name is $name. I'm $age years old <br>");
+}
+
+$names = ['Dave' => 23, 'Jake' => 34];
+foreach ($names as $name => $age) {
+    hello($name, age: $age);
+}
+?>
+```
