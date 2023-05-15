@@ -137,4 +137,37 @@ echo $operation; // вычитание
 
 As in different programming language
 
+## Function
 
+As in different programming language
+
+But anonymous function has closure.
+In closure function can use variable from global. 
+
+```php
+<?php
+$jake = 'Jake';
+$questions = 'How are you?';
+
+$sayHi = function($name) use ($questions) {
+	echo "Hi, $name <br> $questions";
+};
+
+$sayHi($jake);
+?>
+```
+
+## Arrow Function
+
+By default, you can use variable from global. You need to return a result.
+
+```php
+<?php
+$jake = 'Jake';
+$questions = 'How are you?';
+
+$sayHi = fn($name) => "Hi, $name <br> $questions";
+
+echo $sayHi($jake);
+?>
+```
