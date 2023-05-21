@@ -198,3 +198,29 @@ $sayHi = fn($name) => "Hi, $name <br> $questions";
 echo $sayHi($jake);
 ?>
 ```
+
+## HTTP - auth
+
+To authenticate in resource use <i>header()</i> function.
+- Set header  WWW-Authenticate: Basic / Bearer / Digest / HOBA / Mutual / Negotiate / NTLM / VAPID / SCRAM / AWS4-HMAC-SHA256
+- Set header realm - protected area
+- Set status code - 401 Unauthorized
+
+- Auth data: PHP_AUTH_USER, PHP_AUTH_PW, AUTH_TYPE 
+- Data is store in global array $_SERVER $_HTTP_SERVER_VARS
+
+```php
+<?php
+if (!isset($_SERVER['PHP_AUTH_USER'])) {
+    header('WWW-Authenticate: Basic realm="Server"');
+    header('HTTP/1.0 401 Unauthorized');
+    echo 'Текст, отправляемый в том случае,
+    если пользователь нажал кнопку Cancel';
+    exit;
+} else {
+    echo "<p>Hello {$_SERVER['PHP_AUTH_USER']}.</p>";
+    echo "<p>Вы ввели пароль {$_SERVER['PHP_AUTH_PW']}.</p>";
+}
+?>
+```
+

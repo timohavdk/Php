@@ -1,11 +1,12 @@
 <?php
-function hello($name, $age): void
-{
-    echo("My name is $name. I'm $age years old <br>");
-}
-
-$names = ['Dave' => 23, 'Jake' => 34];
-foreach ($names as $name => $age) {
-    hello($name, age: $age);
+if (!isset($_SERVER['PHP_AUTH_USER'])) {
+    header('WWW-Authenticate: Basic realm="Server"');
+    header('HTTP/1.0 401 Unauthorized');
+    echo 'Текст, отправляемый в том случае,
+    если пользователь нажал кнопку Cancel';
+    exit;
+} else {
+    echo "<p>Hello {$_SERVER['PHP_AUTH_USER']}.</p>";
+    echo "<p>Вы ввели пароль {$_SERVER['PHP_AUTH_PW']}.</p>";
 }
 ?>
