@@ -70,13 +70,37 @@ for ($i = 0; $i < 10; $i +=1 ) {
 	array_push($random_array_3, $elementOfArray);
 }
 
-function
-
-$random_array_3 = array_filter($random_array_3, () => {
-
-});
+$random_array_3 = array_filter($random_array_3, function($v, $k) {
+	return $v < 50;
+	}, 1);
 
 foreach ($random_array_3 as $element) {
+	echo "$element<br>";
+}
+?>
+<h2>array_map</h2>
+<?php
+$random_array_4 = [];
+for ($i = 0; $i < 10; $i +=1 ) {
+	$elementOfArray = rand(1, 100);
+	array_push($random_array_4, $elementOfArray);
+}
+
+echo "До использования функции<br>";
+
+foreach ($random_array_4 as $element) {
+	echo "$element<br>";
+}
+
+$multiply_2 = function($number): int {
+	return $number * 2;
+};
+
+echo "После использования функции<br>";
+
+$random_array_4 = array_map($multiply_2, $random_array_4);
+
+foreach ($random_array_4 as $element) {
 	echo "$element<br>";
 }
 ?>
